@@ -1,0 +1,17 @@
+cc = gcc
+windres = windres
+cflags = -Wall -std=c11 -IC:\msys64\mingw64\include
+lflags = -LC:\msys64\mingw64\lib -lraylib -lopengl32 -lgdi32 -lwinmm -mwindows
+
+rule compile
+    command = $cc $cflags -c $in -o $out
+
+rule windres
+    command = $windres $in -O coff -o $out
+
+rule link
+    command = $cc $in $lflags -o $out
+
+build metronome.o: compile main.c
+build resource.res: windres resource.rc
+build metronome.exe: link metronome.o resource.res
