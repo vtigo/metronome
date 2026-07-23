@@ -1,6 +1,7 @@
+build/
 *.res
 *.o
+*.obj
 *.exe
 *.cache
-.ninja_log
 compile_commands.json

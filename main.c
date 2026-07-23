@@ -11,7 +11,7 @@ int main(void)
 {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "metronome");
     InitAudioDevice();
-    Sound tick_sound = LoadSound("tick.mp3");
+    Sound tick_sound = LoadSound(TextFormat("%s/assets/wet.wav", GetApplicationDirectory()));
 
     int bpm = 60;
     double beat_interval = 60.0 / bpm;
